@@ -69,12 +69,18 @@ public class Paciente {
 	}
 	
 	
+	public void exibirDadosPaciente () { 
+	System.out.println("-----------------------------------------------");
+	System.out.println("Código: "+ this.id + "Paciente: " + this.nome);
+	System.out.println("Idade: " + this.idade);
+	if (this.idade>=60) {
+		System.out.println("Paciente tem direito a acompanhante");
+	}else { 
+		System.out.println("Paciente não tem direito a acompanhante!");
+	}
+	System.out.println("-----------------------------------------------");
+	}
 	
-	
-	
-	
-	
-	
-	
+
 	
 }
