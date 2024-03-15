@@ -61,8 +61,10 @@ public class Medico {
 		}
 	}
 	
-	public void cadastrarPaciente () {
+	public void cadastrarPaciente (Paciente paciente) {
 		this.pacientes.add(paciente); 
-		System.out.println("Paciente cadastrado com sucesso!");
+		System.out.println("\nPaciente cadastrado com sucesso!");
 	}
+	
+	
 }
