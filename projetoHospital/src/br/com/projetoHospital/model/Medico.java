@@ -54,12 +54,39 @@ public class Medico {
 		this.pacientes = pacientes;
 	}
 	
-	public void imprimirRelatorioPacientes () {
-		System.out.println("- Relatório de pacientes: dr(a) " + this.nome+ " -");
+	public void imprimirRelatorioPacientes (int opcao) {
+		
+		System.out.println();
+		//Todos 
+		System.out.println("- Relatório de pacientes: dr(a) " + this.nome+ " TODOS -");
 		for (Paciente paciente : this.pacientes) {
 			paciente.exibirDadosPaciente(); 
 		}
-	}
+		
+		//Os internados 
+		for (Paciente paciente : this.pacientes) {
+			if (paciente.isInternado()==true) {
+				System.out.println("- Relatório de pacientes: dr(a) " + this.nome+ " INTERNADOS -");
+			}
+			break; 
+		}
+				for (Paciente paciente : this.pacientes) {
+					paciente.exibirDadosPaciente(); 
+				}
+				
+				//Os NÃO internados 
+				for (Paciente paciente : this.pacientes) {
+					if (paciente.isInternado()==true) {
+						System.out.println("- Relatório de pacientes: dr(a) " + this.nome+ " NÃO INTERNADOS -");
+					}
+					break; 
+				}
+						for (Paciente paciente : this.pacientes) {
+							paciente.exibirDadosPaciente(); 
+						}
+			}
+			
+	
 	
 	public void cadastrarPaciente (Paciente paciente) {
 		this.pacientes.add(paciente); 
