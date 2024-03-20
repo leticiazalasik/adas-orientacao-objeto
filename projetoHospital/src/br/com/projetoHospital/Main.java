@@ -22,10 +22,10 @@ public class Main {
 		paciente1.setIsInternado(true);
 
 		Paciente paciente2 = new Paciente(02, "John", 33, "M");
-		paciente2.setIsInternado(false);
+		paciente2.setIsInternado(true);
 
 		Paciente paciente3 = new Paciente(03, "Luiza", 20, "F");
-		paciente3.setIsInternado(false);
+		paciente3.setIsInternado(true);
 
 		Medico medico1 = new Medico();
 		// tem que criar vazio
@@ -41,7 +41,9 @@ public class Main {
 		medico1.cadastrarPaciente(paciente3);
 
 
-		medico1.imprimirRelatorioPacientes(2);
+		medico1.imprimirRelatorioPacientes(3);
+		medico1.realizarAlta();
+		medico1.imprimirRelatorioPacientes(1);
 
 	}
 

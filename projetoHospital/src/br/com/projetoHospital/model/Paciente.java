@@ -79,7 +79,7 @@ public class Paciente {
 		} else {
 			System.out.println("Paciente não tem direito a acompanhante!");
 		}
-		System.out.println("-----------------------------------------------");
+		System.out.println("----------------------------------------------- \n");
 	}
 
 }

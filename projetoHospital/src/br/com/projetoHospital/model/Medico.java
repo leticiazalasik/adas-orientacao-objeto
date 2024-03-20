@@ -57,6 +57,26 @@ public class Medico {
 	public void setPacientes(List<Paciente> pacientes) {
 		this.pacientes = pacientes;
 	}
+	
+	private List <Paciente> getPacientesInternados() { 
+	List <Paciente> lista = new ArrayList<Paciente>(); 
+	for (Paciente paciente : this.pacientes) {
+		if (paciente.isInternado()) {
+			lista.add(paciente);
+		}
+	}
+	return lista;
+	}
+	
+	private List <Paciente>  getPacientesNaoInternados () { 
+		List <Paciente> lista = new ArrayList<Paciente>(); 
+		for (Paciente paciente : this.pacientes) {
+			if (!paciente.isInternado()) {
+				lista.add(paciente);
+			}
+		}
+		return lista;
+	}
 
 	public void imprimirRelatorioPacientes (int tipoRelatorio) {
 		
@@ -64,10 +84,10 @@ if (this.pacientes.size()==0) {
 	System.out.println("Sem pacientes cadastrados");
 } else { 
 	
-	System.out.println("Opções de Relatório: ");
+	System.out.println("\n Opções de Relatório: ");
 	System.out.println("1- Todos");
 	System.out.println("2- Internados");
-	System.out.println("3- Não internados");
+	System.out.println("3- Não internados \n");
 	
 		switch (tipoRelatorio) { 
 		//Todos 
@@ -80,14 +100,14 @@ if (this.pacientes.size()==0) {
 		
 		//Os internados 
 		case 2: 
-		List <Pacientes> internados =getPacientesInternados(); 
+		List <Paciente> internados =getPacientesInternados(); 
 		
 		if (internados.size() ==0) {
-			System.out.println("Não existem pacientes internados");
+			System.out.println("Não existem pacientes internados \n");
 		} else { 
 			System.out.println("\n\n- Relatório de pacientes: dr(a) " + this.nome+ " INTERNADOS -");
-			for (Paciente paciente : this.internados) {
-			
+			for (Paciente paciente : internados) {
+				paciente.exibirDadosPaciente(); 
 			}
 
 		}
@@ -96,16 +116,19 @@ if (this.pacientes.size()==0) {
 				
 				//Os NÃO internados 
 		case 3: 
-				for (Paciente paciente : this.pacientes) {
-					if (paciente.isInternado()==false) {
-						System.out.println("\n\n- Relatório de pacientes: dr(a) " + this.nome+ " NÃO INTERNADOS -");
+				List <Paciente> naoInternados =getPacientesNaoInternados(); 
+				
+				if (naoInternados.size() ==0) {
+					System.out.println("Não existem pacientes NÃO internados \n");
+				} else { 
+					System.out.println("\n\n- Relatório de pacientes: dr(a) " + this.nome+ " NÃO INTERNADOS -");
+					for (Paciente paciente : naoInternados) {
 						paciente.exibirDadosPaciente(); 
 					}
+
 				}
-				} else { 
-					System.out.println("Não há nenhum paciente cadstarado.");
-			
-				break; 
+				
+					break; 
 			
 			default: 
 				System.out.println("Opção não existe!");
@@ -118,18 +141,12 @@ if (this.pacientes.size()==0) {
 		System.out.println("\nPaciente cadastrado com sucesso!");
 	}
 
-//	public void realizarAlta (int idEcluir) {
-//		for (Paciente paci : pacientes) {
-//			if (paci.id==idExcluir) {
-//				this.pacientes.remove(idExcluir)
-//			} else { 
-//				System.out.println("Paciente não encontrado na lista.");
-//			}
-//		}
-//	}
-//	
-//	
-//	
-//	}
-
+	public void realizarAlta () {
+		for (Paciente paci : this.pacientes) {
+			if (paci.isInternado()) {
+				paci.setIsInternado(false);		
+				System.out.println("Alta dada com sucesso para paciente " + paci.getNome());
+			}
+	}
+	}
 }
