@@ -42,9 +42,7 @@ public class Main {
 
 
 		medico1.imprimirRelatorioPacientes(3);
-		medico1.realizarAlta();
-		medico1.imprimirRelatorioPacientes(1);
-
+		medico1.realizarAlta(paciente1);
+		medico1.imprimirRelatorioPacientes(2);
 	}
-
 }

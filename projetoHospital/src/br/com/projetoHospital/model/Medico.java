@@ -141,12 +141,10 @@ if (this.pacientes.size()==0) {
 		System.out.println("\nPaciente cadastrado com sucesso!");
 	}
 
-	public void realizarAlta () {
-		for (Paciente paci : this.pacientes) {
-			if (paci.isInternado()) {
-				paci.setIsInternado(false);		
-				System.out.println("Alta dada com sucesso para paciente " + paci.getNome());
+	public void realizarAlta (Paciente paciente) {
+			if (paciente.isInternado()) {
+				paciente.setIsInternado(false);		
+				System.out.println("Alta dada com sucesso para paciente " + paciente.getNome());
 			}
-	}
 	}
 }
