@@ -89,12 +89,19 @@ public class Caixa {
 	}
 
 	public void exibirHistorico(){ 
+		System.out.println("\n** Histórico de Lançamentos ** \n");
 		for (Lancamento lancamentos : this.historico) {
-			System.out.println(lancamentos);
+			System.out.println(lancamentos.getTipo());
+			System.out.println(lancamentos.getDescricao());
+			System.out.println(lancamentos.getQuantidade());
+			System.out.println(lancamentos.getValorUnitario());
+			System.out.println(lancamentos.getValorTotal());
+			System.out.println("- - - - - - \n");
 		}
 	}
 
 	public void exibirSituacaoCaixa(){ 
+		
 		if (this.isStatus()) {
 			System.out.println("Caixa Aberto");
 		} else { 
@@ -102,23 +109,26 @@ public class Caixa {
 		}
 		System.out.println("Total Entradas: " + this.totalEntrada);
 		System.out.println("Total Saídas: " + this.totalSaida);
+		this.valor=+(this.totalEntrada)-this.totalSaida; 
 		System.out.println("Valor final do caixa: " + this.valor);
 	}
 
 	public void realizarLancamento( Lancamento lancamento){ 
-		if (lancamento.getTipo().equals(1)) {
-			this.totalEntrada=lancamento.getValorTotal();
-		} else if (lancamento.getTipo().equals(2)) {
-				this.totalSaida=lancamento.getValorTotal();
+		this.historico.add(lancamento);
+		if (lancamento.getTipo().equals("Entrada")) {
+			this.totalEntrada += lancamento.getValorTotal();
+		} else if (lancamento.getTipo().equals("Saída")) {
+				this.totalSaida+=lancamento.getValorTotal();
 		} else { 
 			System.out.println("Opção inexistente!");
 		}
+	
 	}
 
 	public void encerrarCaixa() { 
 		this.status=false; 
 		exibirSituacaoCaixa();
-		System.out.println("----- CAIXA ENCERRADO -----");
+		System.out.println("\n----- CAIXA ENCERRADO -----");
 	}
 	
 	

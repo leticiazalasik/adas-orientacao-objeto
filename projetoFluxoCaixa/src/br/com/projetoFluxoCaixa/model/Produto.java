@@ -1,12 +1,15 @@
 package br.com.projetoFluxoCaixa.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produto {
 
 	private int id;
 	private String nome;
 	private String descricao;
 	private double preco;
-	private double estoque;
+	private Double estoque;
 	private boolean isPromocao;
 
 	public Produto() {
@@ -63,6 +66,26 @@ public class Produto {
 
 	// MÉTODOS
 
+	public void adicionarNovoProduto(List<Produto> ListaProdutos, Produto produto) {
+		boolean produtoJaExiste = false;
+		for (Produto produtos : ListaProdutos) {
+			if (produtos.getNome().equals(produto.getNome())) {
+				produtoJaExiste = true;
+				break;
+			}
+		}
+
+		if (!produtoJaExiste) {
+			ListaProdutos.add(produto);
+			System.out.println("Produto adicionado a sua lista de produtos!");
+			System.out.println(ListaProdutos.size());
+
+		} else {
+			System.out.println(
+					"\nJá existe um produto com esse nome na lista.\nOu adicione esse produto ao estoque ou Altere o nome do produto.");
+		}
+	}
+
 	public void realizarVenda(int qtde) {
 		if (validarEstoque(qtde)) {
 			Double valorTotal = this.preco * qtde;
@@ -82,11 +105,27 @@ public class Produto {
 		}
 	}
 
-	public void reporEstoque(double qtde) {
-		this.estoque += qtde;
-		System.out.println("Produtos adicionaados ao estoque!");
+	public void reporEstoque(List <Produto> ListaProdutos, int qtde, Produto produto) {
+		boolean produtoJaExiste = false;
+		for (Produto produtos : ListaProdutos) {
+			if (produtos.getNome().equals(produto.getNome())) {
+				produtoJaExiste = true;
+		                break;
+		         }
+		} 
+		
+		if (produtoJaExiste) { 
+		double estoqueAtual = produtos.getEstoque();
+		//talvez eu precise pegar o index do produto do array que foi encontrado 
+		qtde+=estoqueAtual; 
+                produtos.setEstoque(qtde);  
+        		System.out.println("Produtos adicionaados ao estoque!");
+	} else { 
+		System.out.println("Esse produto não pode ser reposto pois ele não está cadastrado no estoque.");
 	}
-
+	}
+	
+	
 	public void atualizarPromocao(boolean status) {
 		if (!this.isPromocao) {
 			this.isPromocao = true;
@@ -96,7 +135,5 @@ public class Produto {
 			System.out.println("Produto retirado de promoção.");
 		}
 	}
-	
-	
 
 }
