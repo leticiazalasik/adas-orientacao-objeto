@@ -9,7 +9,7 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private double preco;
-	private Double estoque;
+	private double estoque;
 	private boolean isPromocao;
 
 	public Produto() {
@@ -52,8 +52,8 @@ public class Produto {
 		return estoque;
 	}
 
-	public void setEstoque(int estoque) {
-		this.estoque = estoque;
+	public void setEstoque(double estoqueAtual) {
+		this.estoque = estoqueAtual;
 	}
 
 	public boolean isPromocao() {
@@ -88,7 +88,7 @@ public class Produto {
 
 	public void realizarVenda(int qtde) {
 		if (validarEstoque(qtde)) {
-			Double valorTotal = this.preco * qtde;
+			double valorTotal = this.preco * qtde;
 			this.estoque -= qtde;
 		} else {
 			System.out.println(
@@ -107,19 +107,22 @@ public class Produto {
 
 	public void reporEstoque(List <Produto> ListaProdutos, int qtde, Produto produto) {
 		boolean produtoJaExiste = false;
+		int indexProdutoSelecionado=0;
 		for (Produto produtos : ListaProdutos) {
 			if (produtos.getNome().equals(produto.getNome())) {
 				produtoJaExiste = true;
+				indexProdutoSelecionado=ListaProdutos.indexOf(produtos);
 		                break;
 		         }
 		} 
 		
 		if (produtoJaExiste) { 
-		double estoqueAtual = produtos.getEstoque();
-		//talvez eu precise pegar o index do produto do array que foi encontrado 
-		qtde+=estoqueAtual; 
-                produtos.setEstoque(qtde);  
+		double estoqueAtual = ListaProdutos.get(indexProdutoSelecionado).getEstoque();
+		estoqueAtual+=qtde; 
+		ListaProdutos.get(indexProdutoSelecionado).setEstoque(estoqueAtual); 
+		
         		System.out.println("Produtos adicionaados ao estoque!");
+        		
 	} else { 
 		System.out.println("Esse produto não pode ser reposto pois ele não está cadastrado no estoque.");
 	}

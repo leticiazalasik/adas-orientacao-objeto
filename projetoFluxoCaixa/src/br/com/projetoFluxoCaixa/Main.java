@@ -14,6 +14,15 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		Scanner scan = new Scanner (System.in); 
+		
+		Caixa c1 = new Caixa(); 
+		c1.setId(1);
+		c1.setValor(0.0); 
+		c1.setTotalEntrada(0.0);
+		c1.setTotalSaida(0.0);
+		c1.setStatus(true);
+		
+		if (c1.isStatus()) { 
 
 		int opcaoLancamento =0;  
 
@@ -46,12 +55,11 @@ public class Main {
 //		p2.setEstoque(2);
 //		p2.setPromocao(true);
 //		
-		Caixa c1 = new Caixa(); 
-		c1.setId(1);
-		c1.setValor(0.0); 
-		c1.setTotalEntrada(0.0);
-		c1.setTotalSaida(0.0);
-		c1.setStatus(true);
+	
+		
+		p1.reporEstoque(ListaProdutos, 4, p1);
+		c1.exibirSituacaoCaixa();
+		c1.encerrarCaixa();
 		
 //		Lancamento lancamento1 = new Lancamento (); 
 //		
@@ -102,11 +110,15 @@ public class Main {
 		
 		
 		
-//		produto repor tem que existir na lista de produtos e aumentar a qtd, e aumentar as saidas  lancamento 
-//		realizar venda verifica estoque e adiciona ao lancamento aumentando as entradas mas aqui pelo nome tem que ver o valor 
-//		agora se for um produto que ainda nao existe na loja ele tem que ser adicionado ao array
-//		depois colocar tudo isso dentro de um menu de switch e do while enquanto for diferente de 0 0 fecha o caixa e encerra o while nao permitindo mais acoes 
+//		produto repor e aumentar as saidas  lancamento 
+//		realizar venda adiciona ao lancamento aumentando as entradas
+//		as opcoes eu tero como colocar em um switch e cada op chamar uma opcao? so que como cada metodo sabe qual objeto vou aplicar?  
+		} else { 
 		
+		 System.out.println("A execução foi interrompida.");
+		    // Encerrar o programa com status de saída 0 (indicando sucesso)
+		    System.exit(0);
+		}
 		
 	}
 
