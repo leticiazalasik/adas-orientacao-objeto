@@ -105,29 +105,31 @@ public class Produto {
 		}
 	}
 
-	public void reporEstoque(List <Produto> ListaProdutos, int qtde, Produto produto) {
-		boolean produtoJaExiste = false;
-		int indexProdutoSelecionado=0;
-		for (Produto produtos : ListaProdutos) {
-			if (produtos.getNome().equals(produto.getNome())) {
-				produtoJaExiste = true;
-				indexProdutoSelecionado=ListaProdutos.indexOf(produtos);
-		                break;
-		         }
-		} 
-		
-		if (produtoJaExiste) { 
-		double estoqueAtual = ListaProdutos.get(indexProdutoSelecionado).getEstoque();
-		estoqueAtual+=qtde; 
-		ListaProdutos.get(indexProdutoSelecionado).setEstoque(estoqueAtual); 
-		
-        		System.out.println("Produtos adicionaados ao estoque!");
-        		
-	} else { 
-		System.out.println("Esse produto não pode ser reposto pois ele não está cadastrado no estoque.");
+	public void reporEstoque(List<Produto> ListaProdutos, int qtde, Produto produto, Lancamento lancamento) {
+	    boolean produtoJaExiste = false;
+	    int indexProdutoSelecionado = 0;
+	    for (Produto produtos : ListaProdutos) {
+	        if (produtos.getNome().equals(produto.getNome())) {
+	            produtoJaExiste = true;
+	            indexProdutoSelecionado = ListaProdutos.indexOf(produtos);
+	            //
+	            lancamento.setTipo("saída");
+	            lancamento.setDescricao(produtos.getNome());
+	            lancamento.setQuantidade(qtde);
+	            lancamento.setValorUnitario(produtos.getPreco());
+	            lancamento.setValorTotal(produtos.getPreco() * qtde);
+
+	            produtos.setEstoque(produtos.getEstoque() + qtde);
+	            System.out.println("Produtos adicionados ao estoque!");
+	            break;
+	        }
+	    }
+	    if (produtoJaExiste == false) {
+	        System.out.println("Esse produto não pode ser reposto pois ele não está cadastrado no estoque.");
+	    }
 	}
-	}
-	
+
+
 	
 	public void atualizarPromocao(boolean status) {
 		if (!this.isPromocao) {

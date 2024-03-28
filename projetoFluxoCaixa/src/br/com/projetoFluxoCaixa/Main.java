@@ -14,7 +14,9 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		Scanner scan = new Scanner (System.in); 
-		
+		ArrayList<Produto> ListaProdutos = new ArrayList<>();
+
+		//Criando um caixa 
 		Caixa c1 = new Caixa(); 
 		c1.setId(1);
 		c1.setValor(0.0); 
@@ -22,10 +24,10 @@ public class Main {
 		c1.setTotalSaida(0.0);
 		c1.setStatus(true);
 		
+	//Começa aqui o programa, se o caixa estiver aberto por de executar aqui dentro as funções 
 		if (c1.isStatus()) { 
 
-		int opcaoLancamento =0;  
-
+		//Criando um produto 
 		Produto p1 = new Produto (); 
 		p1.setId(1);
 		p1.setNome("Note");
@@ -34,36 +36,28 @@ public class Main {
 		p1.setEstoque(4);
 		p1.setPromocao(false);
 		
-		Produto p2 = new Produto (); 
-		p2.setId(1);
-		p2.setNome("Note");
-		p2.setDescricao("Dell, inspiron 16, tela Full HD");
-		p2.setPreco(2850);
-		p2.setEstoque(4);
-		p2.setPromocao(false);
-		
-		ArrayList<Produto> ListaProdutos = new ArrayList<>();
-
-		p1.adicionarNovoProduto(ListaProdutos, p1);
-		p2.adicionarNovoProduto(ListaProdutos,p2);
-		
+//		//Criando um produto igual para fazer o teste se ele deixa adicionar um novo produto igual 
 //		Produto p2 = new Produto (); 
-//		p2.setId(2);
-//		p2.setNome("Smartphone");
-//		p2.setDescricao("Sansug galaxy X, 64gb de memória, internet 5g");
-//		p2.setPreco(1700);
-//		p2.setEstoque(2);
-//		p2.setPromocao(true);
+//		p2.setId(1);
+//		p2.setNome("Note");
+//		p2.setDescricao("Dell, inspiron 16, tela Full HD");
+//		p2.setPreco(2850);
+//		p2.setEstoque(4);
+//		p2.setPromocao(false);
 //		
-	
+//		//Método que adiciona o novo produto e deve dar erro. 
+//		p1.adicionarNovoProduto(ListaProdutos, p1);
+//		p2.adicionarNovoProduto(ListaProdutos,p2);
 		
-		p1.reporEstoque(ListaProdutos, 4, p1);
+		//Criando um novo lançamento para testar se o repor estoque cria um lancamento 
+		Lancamento lancamento1 = new Lancamento (); 
+
+		p1.reporEstoque(ListaProdutos, 4, p1, lancamento1);
 		c1.exibirSituacaoCaixa();
-		c1.encerrarCaixa();
 		
-//		Lancamento lancamento1 = new Lancamento (); 
+		
 //		
-//		
+//		Aqui eu criei um "lançamento a mão" e abaixo lancei isso como teste 
 //		System.out.println("Qual o tipo de lançamento desejado?");
 //		System.out.println("Entrada");
 //		System.out.println("Saída");
@@ -83,7 +77,8 @@ public class Main {
 //		
 //		Lancamento lancamento2 = new Lancamento (); 
 //
-//		
+//		Outro tipo de lançamento para teste 
+		
 //		System.out.println("Qual o tipo de lançamento desejado?");
 //		System.out.println("Entrada");
 //		System.out.println("Saída");
@@ -97,18 +92,17 @@ public class Main {
 //		quantidade = lancamento2.getQuantidade(); 
 //		valor = lancamento2.getValorUnitario();
 //		lancamento2.setValorTotal(quantidade*valor);
-//
-//
+
+
 //		c1.realizarLancamento(lancamento2);
 //		c1.exibirHistorico();
 //		c1.exibirRelatorioEntradas();
 //		c1.exibirRelatorioSaidas();
 //		c1.exibirSituacaoCaixa();
-////		c1.encerrarCaixa();
+////		c1.encerrarCaixa();		
 		
-		//teste adicionar novos produtos sem repetir 
-		
-		
+		//método que encerra o caixa e testa se fecha o programa 
+		c1.encerrarCaixa();
 		
 //		produto repor e aumentar as saidas  lancamento 
 //		realizar venda adiciona ao lancamento aumentando as entradas
