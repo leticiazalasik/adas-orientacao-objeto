@@ -114,10 +114,14 @@ public class Caixa {
 	}
 
 	public void realizarLancamento( Lancamento lancamento){ 
+		String tipoLancamento="Start"; 
+		
 		this.historico.add(lancamento);
-		if (lancamento.getTipo().equals("Entrada")) {
+		tipoLancamento=lancamento.getTipo();
+		
+		if (tipoLancamento.equals("Entrada")) {
 			this.totalEntrada += lancamento.getValorTotal();
-		} else if (lancamento.getTipo().equals("Saída")) {
+		} else if (tipoLancamento.equals("Saída")) {
 				this.totalSaida+=lancamento.getValorTotal();
 		} else { 
 			System.out.println("Opção inexistente!");
@@ -127,7 +131,6 @@ public class Caixa {
 
 	public void encerrarCaixa() { 
 		this.status=false; 
-		exibirSituacaoCaixa();
 		System.out.println("\n----- CAIXA ENCERRADO -----");
 	}
 	

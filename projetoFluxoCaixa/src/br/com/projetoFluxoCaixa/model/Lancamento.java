@@ -4,7 +4,7 @@ public class Lancamento {
 
 	private String tipo; 
 	private String descricao; 
-	private int quantidade; 
+	private double quantidade; 
 	private double valorUnitario; 
 	private double valorTotal; 
 	
@@ -28,12 +28,12 @@ public class Lancamento {
 		this.descricao = descricao;
 	}
 
-	public int getQuantidade() {
+	public double getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantidade(double d) {
+		this.quantidade = d;
 	}
 
 	public double getValorUnitario() {
@@ -51,6 +51,8 @@ public class Lancamento {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
+
+	
 	
 	
 }

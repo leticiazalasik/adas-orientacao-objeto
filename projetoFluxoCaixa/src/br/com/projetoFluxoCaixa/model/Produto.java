@@ -66,7 +66,7 @@ public class Produto {
 
 	// MÉTODOS
 
-	public void adicionarNovoProduto(List<Produto> ListaProdutos, Produto produto) {
+	public void adicionarNovoProduto(List<Produto> ListaProdutos, Produto produto, Lancamento lancamento, Caixa caixa) {
 		boolean produtoJaExiste = false;
 		for (Produto produtos : ListaProdutos) {
 			if (produtos.getNome().equals(produto.getNome())) {
@@ -78,7 +78,12 @@ public class Produto {
 		if (!produtoJaExiste) {
 			ListaProdutos.add(produto);
 			System.out.println("Produto adicionado a sua lista de produtos!");
-			System.out.println(ListaProdutos.size());
+			lancamento.setTipo("Saída");
+			lancamento.setDescricao("Compra de produtos");
+			lancamento.setQuantidade(produto.getEstoque());
+			lancamento.setValorUnitario(produto.getPreco());
+			lancamento.setValorTotal(produto.getPreco()*produto.getEstoque());
+            caixa.realizarLancamento(lancamento);
 
 		} else {
 			System.out.println(
@@ -105,7 +110,7 @@ public class Produto {
 		}
 	}
 
-	public void reporEstoque(List<Produto> ListaProdutos, int qtde, Produto produto, Lancamento lancamento) {
+	public void reporEstoque(List<Produto> ListaProdutos, int qtde, Produto produto, Lancamento lancamento, Caixa caixa) {
 	    boolean produtoJaExiste = false;
 	    int indexProdutoSelecionado = 0;
 	    for (Produto produtos : ListaProdutos) {
@@ -113,13 +118,14 @@ public class Produto {
 	            produtoJaExiste = true;
 	            indexProdutoSelecionado = ListaProdutos.indexOf(produtos);
 	            //
-	            lancamento.setTipo("saída");
+	            lancamento.setTipo("Saída");
 	            lancamento.setDescricao(produtos.getNome());
 	            lancamento.setQuantidade(qtde);
 	            lancamento.setValorUnitario(produtos.getPreco());
 	            lancamento.setValorTotal(produtos.getPreco() * qtde);
 
 	            produtos.setEstoque(produtos.getEstoque() + qtde);
+	            caixa.realizarLancamento(lancamento);
 	            System.out.println("Produtos adicionados ao estoque!");
 	            break;
 	        }

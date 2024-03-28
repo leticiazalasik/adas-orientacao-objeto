@@ -33,8 +33,27 @@ public class Main {
 		p1.setNome("Note");
 		p1.setDescricao("Dell, inspiron 16, tela Full HD");
 		p1.setPreco(2850);
-		p1.setEstoque(4);
+		p1.setEstoque(5);
 		p1.setPromocao(false);
+		
+		Lancamento lancamento1 = new Lancamento (); 
+//		lancamento1.setTipo("");
+//		lancamento1.setDescricao("");
+//		lancamento1.setQuantidade(0);
+//		lancamento1.setValorUnitario(0);
+//		lancamento1.setValorTotal(0);
+		
+		//teste para ver se adicionando um produto novo ele já faz um lançamento automatico de saída com as referencias 
+		p1.adicionarNovoProduto(ListaProdutos, p1, lancamento1, c1);
+		
+		
+		Lancamento lancamento2 = new Lancamento (); 
+//		lancamento2.setTipo("");
+//		lancamento2.setDescricao("");
+//		lancamento2.setQuantidade(0);
+//		lancamento1.setValorUnitario(0);
+//		lancamento1.setValorTotal(0);
+
 		
 //		//Criando um produto igual para fazer o teste se ele deixa adicionar um novo produto igual 
 //		Produto p2 = new Produto (); 
@@ -50,9 +69,10 @@ public class Main {
 //		p2.adicionarNovoProduto(ListaProdutos,p2);
 		
 		//Criando um novo lançamento para testar se o repor estoque cria um lancamento 
-		Lancamento lancamento1 = new Lancamento (); 
 
-		p1.reporEstoque(ListaProdutos, 4, p1, lancamento1);
+		p1.reporEstoque(ListaProdutos, 2, p1, lancamento2, c1);
+		
+		c1.exibirHistorico();
 		c1.exibirSituacaoCaixa();
 		
 		
@@ -104,16 +124,18 @@ public class Main {
 		//método que encerra o caixa e testa se fecha o programa 
 		c1.encerrarCaixa();
 		
-//		produto repor e aumentar as saidas  lancamento 
-//		realizar venda adiciona ao lancamento aumentando as entradas
-//		as opcoes eu tero como colocar em um switch e cada op chamar uma opcao? so que como cada metodo sabe qual objeto vou aplicar?  
+//		
 		} else { 
 		
 		 System.out.println("A execução foi interrompida.");
 		    // Encerrar o programa com status de saída 0 (indicando sucesso)
 		    System.exit(0);
 		}
-		//test
+	
+//		realizar venda adiciona ao lancamento aumentando as entradas
+//		as opcoes eu tero como colocar em um switch e cada op chamar uma opcao? so que como cada metodo sabe qual objeto vou aplicar?  
 	}
 
 }
+
+
