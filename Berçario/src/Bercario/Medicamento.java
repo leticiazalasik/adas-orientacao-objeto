@@ -7,7 +7,6 @@ public class Medicamento {
 	private String unidadeMedida;
 	
 	public Medicamento(String descricao, Integer estoqueQtd, String unidadeMedida) {
-		super();
 		this.descricao = descricao;
 		this.estoqueQtd = estoqueQtd;
 		this.unidadeMedida = unidadeMedida;
