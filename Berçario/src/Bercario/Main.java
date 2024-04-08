@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		//COLCOAR TUDO QUE ESTÁ FALTANDO AINDA DE ATRIBUTOS 
 		//Criando médicos 
 		Medico medico1 = new Medico(); 
 		
