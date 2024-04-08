@@ -6,59 +6,40 @@ import java.util.List;
 
 import javax.xml.crypto.Data;
 
-public class Bebe {
+public class Bebe extends Pessoa{
 	
-		private String nome; 
-		private Date dataNacsimento; 
 		private Mae nomeMae; 
 		private Medico nomeMedico; 
 		private List<Medicamento>listaDeMedicamentos; 
+		//no bebe estou pensando em faxer uma list aqui historico e aí aqui ele receberia como parametro o medicamento 
 		
-		public Bebe() { 
-			this.listaDeMedicamentos=new ArrayList<Medicamento>();
-	}
-
-		public String getNome() {
-			return nome;
+		public Bebe(Mae nomeMae, Medico nomeMedico) { 
+			this.listaDeMedicamentos = new ArrayList <Medicamento> ();  
+			this.nomeMae = nomeMae;
+			this.nomeMedico = nomeMedico;
 		}
-
-		public void setNome(String nome) {
-			this.nome = nome;
+		public Bebe(String nome, String endereco, Date dataNascimento) {
+			super();
+			
 		}
-
-		public Date getDataNacsimento() {
-			return dataNacsimento;
-		}
-
-		public void setDataNacsimento(Date dataNacsimento) {
-			this.dataNacsimento = dataNacsimento;
-		}
-
 		public Mae getNomeMae() {
 			return nomeMae;
 		}
-
 		public void setNomeMae(Mae nomeMae) {
 			this.nomeMae = nomeMae;
 		}
-
 		public Medico getNomeMedico() {
 			return nomeMedico;
 		}
-
 		public void setNomeMedico(Medico nomeMedico) {
 			this.nomeMedico = nomeMedico;
 		}
-
 		public List<Medicamento> getListaDeMedicamentos() {
 			return listaDeMedicamentos;
 		}
-
 		public void setListaDeMedicamentos(List<Medicamento> listaDeMedicamentos) {
 			this.listaDeMedicamentos = listaDeMedicamentos;
 		}
-		
-	
 		
 		
 		
