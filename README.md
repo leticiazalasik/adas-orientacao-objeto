@@ -5,6 +5,9 @@ Repositório criado com o objetivo de estudar orientação a objetos.
 
 2- Projeto empresa: classe funcionário e classe líder (conceder bônus, adicionar funcionário a equipe, desligar funcionário, imprimir 3 tipos de relatórios). 
 
+3- Projeto bercario: classe, bebe, mae, medicamento, médico, controleMedicamento. Este projeto está em andamento.  
+
+
 ## 👨‍💻️ Tecnologias Utilizadas
 Esse projeto foi criado utilizando as tecnologias:
 ### :small_blue_diamond: JAVA - Eclipse
