@@ -10,11 +10,11 @@ public class Bebe extends Pessoa{
 	
 		private Mae nomeMae; 
 		private Medico nomeMedico; 
-		private List<Medicamento>listaDeMedicamentos; 
-		//no bebe estou pensando em faxer uma list aqui historico e aí aqui ele receberia como parametro o medicamento 
+		private ArrayList<ControleMedicamento>controleMedicamentos; 
+		// Se eu quissse começar já com uma lista criada, se todos os bebes vao tomar medicacáo faria assim 
+		//private ArrayList<ControleMedicamento> controleMedicamentos = new ArrayList<E>(); 
 		
 		public Bebe(Mae nomeMae, Medico nomeMedico) { 
-			this.listaDeMedicamentos = new ArrayList <Medicamento> ();  
 			this.nomeMae = nomeMae;
 			this.nomeMedico = nomeMedico;
 		}
@@ -34,12 +34,19 @@ public class Bebe extends Pessoa{
 		public void setNomeMedico(Medico nomeMedico) {
 			this.nomeMedico = nomeMedico;
 		}
-		public List<Medicamento> getListaDeMedicamentos() {
-			return listaDeMedicamentos;
+		public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
+			return controleMedicamentos;
 		}
-		public void setListaDeMedicamentos(List<Medicamento> listaDeMedicamentos) {
-			this.listaDeMedicamentos = listaDeMedicamentos;
+//		public void setListaDeMedicamentos(ControleMedicamento controleMedicamento) {
+//			this.controleMedicamentos.add(controleMedicamento); 
+//		}
+// Essa aqui seria a implementacao do set se tivéssemos feito aquele outro arrayList comentado 
+	
+		public void setControleMedicamentos(ArrayList<ControleMedicamento> controleMedicamentos) {
+			this.controleMedicamentos = controleMedicamentos;
 		}
+		
+		
 		
 		
 		
