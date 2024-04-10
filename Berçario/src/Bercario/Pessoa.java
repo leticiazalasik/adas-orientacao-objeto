@@ -43,6 +43,13 @@ public abstract class Pessoa {
 
 	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
+	}
+
+
+	@Override
+	public String toString() {
+		return String.format("Nome: %s \nEndereço: %s \n Data de nascimento: %s", 
+							nome, endereco, dataNascimento); 
 	} 
 
 	

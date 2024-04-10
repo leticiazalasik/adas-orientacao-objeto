@@ -8,35 +8,48 @@ import javax.xml.crypto.Data;
 
 public class Bebe extends Pessoa{
 	
-		private Mae nomeMae; 
-		private Medico nomeMedico; 
+		private Mae mae; 
+		private Medico medico; 
 		private ArrayList<ControleMedicamento>controleMedicamentos; 
 		// Se eu quissse começar já com uma lista criada, se todos os bebes vao tomar medicacáo faria assim 
 		//private ArrayList<ControleMedicamento> controleMedicamentos = new ArrayList<E>(); 
 		
-		public Bebe(Mae nomeMae, Medico nomeMedico) { 
-			this.nomeMae = nomeMae;
-			this.nomeMedico = nomeMedico;
-		}
-		public Bebe(String nome, String endereco, Date dataNascimento) {
+public Bebe(Mae mae, Medico medico, ArrayList<ControleMedicamento> controleMedicamentos) {
 			super();
-			
+			this.mae = mae;
+			this.medico = medico;
+			this.controleMedicamentos = controleMedicamentos;
 		}
-		public Mae getNomeMae() {
-			return nomeMae;
-		}
-		public void setNomeMae(Mae nomeMae) {
-			this.nomeMae = nomeMae;
-		}
-		public Medico getNomeMedico() {
-			return nomeMedico;
-		}
-		public void setNomeMedico(Medico nomeMedico) {
-			this.nomeMedico = nomeMedico;
-		}
-		public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
-			return controleMedicamentos;
-		}
+
+
+
+public Mae getMae() {
+	return mae;
+}
+
+
+
+public void setMae(Mae mae) {
+	this.mae = mae;
+}
+
+
+
+public Medico getMedico() {
+	return medico;
+}
+
+
+
+public void setMedico(Medico medico) {
+	this.medico = medico;
+}
+
+
+
+public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
+	return controleMedicamentos;
+}
 //		public void setListaDeMedicamentos(ControleMedicamento controleMedicamento) {
 //			this.controleMedicamentos.add(controleMedicamento); 
 //		}
@@ -46,7 +59,10 @@ public class Bebe extends Pessoa{
 			this.controleMedicamentos = controleMedicamentos;
 		}
 		
-		
+		public String exibirInformacoes () {
+			return String.format("%s \n Mãe: %s Contato da mãe: %s \n Médico: %s", 
+					super.toString(), mae.getNome(), mae.getTelefone(), medico,getNome() ); 
+		}
 		
 		
 		
