@@ -71,6 +71,13 @@ public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
 
 		}
 		
+		public String relatorioMedicamentos () {
+			String text = " "; 
+			for (ControleMedicamento controle : controleMedicamento) {
+				text += controle.toString();
+			}
+			return text; 
+		}
 		
 		
 }

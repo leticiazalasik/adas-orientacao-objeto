@@ -41,6 +41,14 @@ public class Main {
 		
 
 		System.out.println(bebe1.exibirInformacoes());
+		
+		Bebe bebe2 = new Bebe ("Maria", "Rua do infelizes", new Date(), 991556767, mae1, medico1, null);
+		
+		//testabdo se os bebes sao iguais
+		System.out.println(" ");
+		System.out.println(bebe1.equals(bebe2));
+		System.out.println(bebe2.hashCode() + "|" + bebe1.hashCode());
+
 
 
 		

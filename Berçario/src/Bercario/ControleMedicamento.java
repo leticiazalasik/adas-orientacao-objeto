@@ -32,8 +32,8 @@ public class ControleMedicamento {
 	@Override
 	public String toString() {
 		return String.format("Data Hora: %s\n"
-				+ "Medicamento: %s"
-				+ "Unidade de medida %s", dataHora, medicamento.getDescricao(), medicamento.getUnidadeMedida()); 
+				+ "Medicamento: %s "
+				+ "Unidade de medida %s\n", dataHora, medicamento.getDescricao(), medicamento.getUnidadeMedida()); 
 	}
 	
 	
