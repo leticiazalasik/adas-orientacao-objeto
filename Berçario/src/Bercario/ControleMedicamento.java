@@ -28,6 +28,13 @@ public class ControleMedicamento {
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Data Hora: %s\n"
+				+ "Medicamento: %s"
+				+ "Unidade de medida %s", dataHora, medicamento.getDescricao(), medicamento.getUnidadeMedida()); 
+	}
 	
 	
 	
