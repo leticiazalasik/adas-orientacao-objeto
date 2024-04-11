@@ -3,6 +3,7 @@ package Bercario;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.xml.crypto.Data;
 
@@ -78,6 +79,36 @@ public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
 			}
 			return text; 
 		}
+
+//source hash code 
+// a comparação está sendo feita entre os atributos mae e medico dos objetos do tipo Bebe, não entre os próprios bebês. 
+// Esses atributos vao determinar se dois objetos do tipo Bebe são considerados iguais ou não, de acordo com a lógica de igualdade que está sendo implementada nessa classe.
+//Se eu deixasse só o hash ele comparar apenas a referencia de memoria de cada objeto 
+		@Override
+		public int hashCode() { //Nese caso o hascode vai ser criado com base nessas dois atributos, se forem iguais, mesmo hashcode 
+			return Objects.hash(mae, medico);
+		}
+
+
+
+		@Override
+		//Aqui no caso a ideia vais er passar nesse parametro um objeto da classe bebe, ele só está object para nao obrigar que seja 
+		//chama o método equals() em um objeto, você está comparando esse objeto com outro que é passado como parâmetro. 
 		
+		public boolean equals(Object obj) {
+			if (this == obj) //o que ele compara aqui é a referencia de memória 
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Bebe other = (Bebe) obj; //Aqui estou convertendo o objeto obj generico para um objeto do tipo bebe
+			return Objects.equals(mae, other.mae) && Objects.equals(medico, other.medico); // poderia colocar aqui um && this.hashcode()==obj.hashcode; Aì compararia o o codigo de memoria 
+		}
+		
+		//método equals() que você mencionou, a comparação é feita com base nos atributos mae e medico dos objetos do tipo Bebe.
+		//a geração de códigos hash cria um valor numérico que representa unicamente um objeto. Dois objetos iguais de acordo com o método equals() devem ter o 
+		//mesmo código hash, mas dois objetos com o mesmo código hash não necessariamente são iguais.
+
 		
 }

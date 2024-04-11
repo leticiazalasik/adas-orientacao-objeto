@@ -15,6 +15,10 @@ public class Main {
 		mae1.setNome("Maria de Souza");
 		mae1.setTelefone(991668989); 
 		
+		Mae mae2 = new Mae ();
+		mae1.setNome("Marta de Souza");
+		mae1.setTelefone(991668282); 
+		
 		Medico medico1 = new Medico(); 
 		medico1.setNome("Marco Augusto");
 		medico1.setTelefone(33340927); 
@@ -42,9 +46,9 @@ public class Main {
 
 		System.out.println(bebe1.exibirInformacoes());
 		
-		Bebe bebe2 = new Bebe ("Maria", "Rua do infelizes", new Date(), 991556767, mae1, medico1, null);
+		Bebe bebe2 = new Bebe ("Mariana", null, new Date(), 991556790, mae1, medico1, null);
 		
-		//testabdo se os bebes sao iguais
+		//testabdo se os bebes sao iguais, o hasj la em bebe vai comparar a mae e o medico, entao esses dois tem que ser iguais para dar true 
 		System.out.println(" ");
 		System.out.println(bebe1.equals(bebe2));
 		System.out.println(bebe2.hashCode() + "|" + bebe1.hashCode());
