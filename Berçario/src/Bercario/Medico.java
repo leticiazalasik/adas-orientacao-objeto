@@ -2,7 +2,7 @@ package Bercario;
 
 import java.util.Date;
 
-public class Medico {
+public class Medico extends Pessoa{
 
 	private Integer crm;  
 	

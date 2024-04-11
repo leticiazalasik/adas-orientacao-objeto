@@ -10,15 +10,15 @@ public class Bebe extends Pessoa{
 	
 		private Mae mae; 
 		private Medico medico; 
-		private ArrayList<ControleMedicamento>controleMedicamentos; 
+		private ArrayList<ControleMedicamento> controleMedicamento; 
 		// Se eu quissse começar já com uma lista criada, se todos os bebes vao tomar medicacáo faria assim 
 		//private ArrayList<ControleMedicamento> controleMedicamentos = new ArrayList<E>(); 
 		
-public Bebe(Mae mae, Medico medico, ArrayList<ControleMedicamento> controleMedicamentos) {
-			super();
+public Bebe(String nome, String endereco, Date dataNascimento, Integer telefone, Mae mae, Medico medico, ArrayList <ControleMedicamento> controle1) {
+			super (nome, endereco, dataNascimento, telefone); 
 			this.mae = mae;
 			this.medico = medico;
-			this.controleMedicamentos = controleMedicamentos;
+			this.controleMedicamento = controle1;
 		}
 
 
@@ -47,8 +47,14 @@ public void setMedico(Medico medico) {
 
 
 
+public ControleMedicamento getControleMedicamentos() {
+	return getControleMedicamentos();
+}
+
+
+
 public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
-	return controleMedicamentos;
+	return controleMedicamento;
 }
 //		public void setListaDeMedicamentos(ControleMedicamento controleMedicamento) {
 //			this.controleMedicamentos.add(controleMedicamento); 
@@ -56,12 +62,13 @@ public ArrayList<ControleMedicamento> getListaDeMedicamentos() {
 // Essa aqui seria a implementacao do set se tivéssemos feito aquele outro arrayList comentado 
 	
 		public void setControleMedicamentos(ArrayList<ControleMedicamento> controleMedicamentos) {
-			this.controleMedicamentos = controleMedicamentos;
+			this.controleMedicamento = controleMedicamentos;
 		}
 		
 		public String exibirInformacoes () {
 			return String.format("%s \n Mãe: %s Contato da mãe: %s \n Médico: %s", 
-					super.toString(), mae.getNome(), mae.getTelefone(), medico,getNome() ); 
+					super.toString(), mae.getNome(), mae.getTelefone(), medico.getNome());
+
 		}
 		
 		

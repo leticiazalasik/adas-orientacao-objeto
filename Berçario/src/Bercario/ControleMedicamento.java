@@ -6,13 +6,11 @@ public class ControleMedicamento {
 
 	private Date dataHora; 
 	private Medicamento medicamento; 
-	private Bebe bebe;
 	
-	public ControleMedicamento(Date dataHora, Medicamento medicamento, Bebe bebe) {
+	public ControleMedicamento(Date dataHora, Medicamento medicamento) {
 		super();
 		this.dataHora = dataHora;
 		this.medicamento = medicamento;
-		this.bebe = bebe;
 	}
 
 	public Date getDataHora() {
@@ -30,15 +28,6 @@ public class ControleMedicamento {
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
 	}
-
-	public Bebe getBebe() {
-		return bebe;
-	}
-
-	public void setBebe(Bebe bebe) {
-		this.bebe = bebe;
-	} 
-	
 	
 	
 	

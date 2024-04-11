@@ -12,6 +12,17 @@ public abstract class Pessoa {
 		
 	}
 
+	
+
+	public Pessoa(String nome, String endereco, Date dataNascimento, Integer telefone) {
+		super();
+		this.nome = nome;
+		this.endereco = endereco;
+		this.dataNascimento = dataNascimento;
+		this.telefone = telefone;
+	}
+
+
 
 	public String getNome() {
 		return nome;
