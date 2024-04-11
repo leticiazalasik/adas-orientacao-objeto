@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import javax.xml.crypto.Data;
 
-public class Bebe extends Pessoa{
+public class Bebe extends Pessoa implements repositorioBebe{
 	
 		private Mae mae; 
 		private Medico medico; 
