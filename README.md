@@ -13,6 +13,4 @@ Repositório criado com o objetivo de estudar orientação a objetos.
 ## 👨‍💻️ Tecnologias Utilizadas
 Esse projeto foi criado utilizando as tecnologias:
 ### :small_blue_diamond: JAVA - Eclipse
-
-##
-Repositório em andamento. 
+### :small_blue_diamond: UML - Drawio
